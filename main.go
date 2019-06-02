@@ -8,7 +8,7 @@ import (
 
 // HandlerFunc1 handles basic calls
 func HandlerFunc1(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "\nRelease 1.2")
+	fmt.Fprintf(w, "\nRelease 1")
 }
 
 func main() {
