@@ -42,7 +42,7 @@ COPY --from=builder /etc/group /etc/group
 COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certificates.crt
 
 # Copy our static executable.
-COPY --from=builder  /go/src/github.com/uprabhatsharma/sample-microservice/main /go/bin/main
+COPY --from=builder  /go/src/github.com/prabhatsharma/sample-microservice/main /go/bin/main
 
 # Use an unprivileged user.
 USER appuser:appuser
