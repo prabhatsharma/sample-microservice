@@ -12,11 +12,11 @@ ENV USER=appuser
 ENV UID=10001 
 # See https://stackoverflow.com/a/55757473/12429735RUN 
 RUN adduser \    
-    --gecos "" \    
-    --home "/nonexistent" \    
-    --shell "/sbin/nologin" \    
-    --no-create-home \    
-    --uid "${UID}" \    
+    -g "" \    
+    -h "/nonexistent" \    
+    -s "/sbin/nologin" \    
+    -H \    
+    -u "${UID}" \    
     "${USER}"
 WORKDIR $GOPATH/src/github.com/prabhatsharma/sample-microservice/
 COPY . .
