@@ -12,7 +12,6 @@ ENV USER=appuser
 ENV UID=10001 
 # See https://stackoverflow.com/a/55757473/12429735RUN 
 RUN adduser \    
-    --disabled-password \    
     --gecos "" \    
     --home "/nonexistent" \    
     --shell "/sbin/nologin" \    
