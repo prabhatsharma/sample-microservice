@@ -15,7 +15,7 @@ steps:
       registry: 566178068807.dkr.ecr.us-west-2.amazonaws.com
       tags:
       - latest
-      - $DRONE_BUILD_NUMBER
+      - ${DRONE_BUILD_NUMBER}
 
   - name: greeting
     image: alpine
