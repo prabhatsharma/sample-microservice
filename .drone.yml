@@ -3,6 +3,11 @@ type: kubernetes
 name: default
 
 steps:
+- name: build
+  image: golang
+  commands: 
+  - CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -o main
+
 - name: greeting
   image: alpine
   commands:
