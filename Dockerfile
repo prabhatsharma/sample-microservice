@@ -8,16 +8,16 @@ FROM public.ecr.aws/vend/golang:1.8-alpine AS builder
 RUN apk --update add ca-certificates
 RUN apk update && apk add --no-cache git
 # Create appuser.
-ENV USER=appuser
-ENV UID=10001 
-# See https://stackoverflow.com/a/55757473/12429735RUN 
-RUN adduser \    
-    -g "" \    
-    -h "/nonexistent" \    
-    -s "/sbin/nologin" \    
-    -H \    
-    -u "${UID}" \    
-    "${USER}"
+# ENV USER=appuser
+# ENV UID=10001 
+# # See https://stackoverflow.com/a/55757473/12429735RUN 
+# RUN adduser \    
+#     -g "" \    
+#     -h "/nonexistent" \    
+#     -s "/sbin/nologin" \    
+#     -H \    
+#     -u "${UID}" \    
+#     "${USER}"
 WORKDIR $GOPATH/src/github.com/prabhatsharma/sample-microservice/
 COPY . .
 # Fetch dependencies.
@@ -44,7 +44,7 @@ COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/ca-certifi
 COPY --from=builder  /go/src/github.com/prabhatsharma/sample-microservice/main /go/bin/main
 
 # Use an unprivileged user.
-USER appuser:appuser
+# USER appuser:appuser
 # Port on which the service will be exposed.
 EXPOSE 6080
 # Run the binary.

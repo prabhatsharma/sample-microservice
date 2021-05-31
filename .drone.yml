@@ -2,16 +2,7 @@ kind: pipeline
 type: kubernetes
 name: default
 
-clone:
-  disable: true
-
 steps:
-  - name: clone
-    image: alpine/git
-    commands:
-    - git clone https://github.com/prabhatsharma/sample-microservice .
-    - git checkout $DRONE_COMMIT
-
   - name: build
     image: golang
     commands: 
