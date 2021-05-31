@@ -3,14 +3,20 @@ type: kubernetes
 name: default
 
 steps:
-- name: build
-  image: golang
-  commands: 
-  - CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -o main
+  - name: build
+    image: golang
+    commands: 
+    - CGO_ENABLED=0 GOOS=linux go build -ldflags="-w -s" -o main
 
-- name: greeting
-  image: alpine
-  commands:
-  - echo hello
-  - echo world
-  
+  - name: publish  
+    image: plugins/ecr
+    settings:
+      repo: sample-microservice
+      registry: 566178068807.dkr.ecr.us-west-2.amazonaws.com
+
+  - name: greeting
+    image: alpine
+    commands:
+    - echo hello
+    - echo world
+    
