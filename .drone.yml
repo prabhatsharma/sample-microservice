@@ -2,6 +2,9 @@ kind: pipeline
 type: kubernetes
 name: default
 
+clone:
+  depth: 1
+
 steps:
   - name: build
     image: golang
