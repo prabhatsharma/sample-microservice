@@ -2,7 +2,7 @@
 # STEP 1 build executable binary
 ############################
 # FROM public.ecr.aws/vend/golang:1.8-alpine AS builder
-FROM 566178068807.dkr.ecr.us-west-2.amazonaws.com/golang:1.15.7-alpine3.13 AS builder
+FROM 525158249545.dkr.ecr.us-west-2.amazonaws.com/golang:1.16.5-alpine3.13 AS builder
 # FROM golang:alpine AS builder
 # Install git.
 # Git is required for fetching the dependencies.
